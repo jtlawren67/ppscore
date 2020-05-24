@@ -1,0 +1,17 @@
+Package: ppscore
+Title: ppscore - a R implementation of the Predictive Power Score (PPS) (based on the Python implementation by 8080Labs)
+Version: 0.0.0.1
+Authors@R: 
+    person(given = "Josh",
+           family = "Lawrence",
+           role = c("aut", "cre"),
+           email = "jtlawren+github@gmail.com")
+Description: The PPS is an asymmetric, data-type-agnostic score that can detect linear or non-linear relationships between two columns. The score ranges from 0 (no predictive power) to 1 (perfect predictive power). It can be used as an alternative to the correlation (matrix).  This package is a R port of the Python version developed by [8080Labs](https://github.com/8080labs/ppscore).
+License: use_mit_license()
+Imports:
+  purrr,
+  rpart
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0

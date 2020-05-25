@@ -28,7 +28,7 @@ pps_matrix <- function(df){
   results <- map2_dfr(name_combos$target, name_combos$feature, function(target, feature){
     res = tryCatch({
       message(paste0(Sys.time(), " Running target:", target, "/feature:", feature))
-      res =  pps_score(df, target, feature)
+      res =  ppscore(df, target, feature)
       message(paste0(Sys.time(), " Completed target:", target, "/feature:", feature, " as task ", res$task_name))
       return(res)
     },

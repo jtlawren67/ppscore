@@ -6,6 +6,7 @@ NUMERIC_AS_CATEGORIC_BREAKPOINT = 15
   df = sample(df, replace = F)
 
   #Create Samples
+  fold <- NULL
   df$fold <- sample(c(1:CV_ITERATIONS), nrow(df), replace = T)
 
   if(task_name == 'classification'){

@@ -25,6 +25,7 @@ A data.frame containing 1 row for each PPS calculation:
 Calculate the Predictive Power Score (PPS) for all columns in the dataframe.  Data is returned in long-format
 }
 \examples{
-pps_matrix(titanic)
+data(titanic_example)
+pps_matrix(titanic_example)
 }
 \keyword{zuh}

@@ -2,3 +2,11 @@
 
 export(pps_matrix)
 export(ppscore)
+importFrom(purrr,map2_dfr)
+importFrom(purrr,map_dbl)
+importFrom(purrr,map_dfr)
+importFrom(rpart,rpart)
+importFrom(stats,as.formula)
+importFrom(stats,complete.cases)
+importFrom(stats,predict)
+importFrom(stats,quantile)

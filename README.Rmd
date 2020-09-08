@@ -55,7 +55,7 @@ ppscore(titanic, "Survived", "Sex")
 
 ## pps_matrix
 
-To run comparions on all variables in the data.frame, use the `pps_matrix` function.  This will run all possible target/feature combinations and return in a long-format data frame.
+To run comparisons on all variables in the data.frame, use the `pps_matrix` function.  This will run all possible target/feature combinations and return in a long-format data frame.
 
 ```{r example2, eval=FALSE}
 mtx_check <- pps_matrix(titanic)

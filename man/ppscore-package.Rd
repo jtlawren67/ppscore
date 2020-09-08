@@ -2,8 +2,8 @@
 % Please edit documentation in R/ppscore-package.R
 \docType{package}
 \name{ppscore-package}
-\alias{ppscore}
 \alias{ppscore-package}
+\alias{_PACKAGE}
 \title{ppscore: ppscore - a R implementation of the Predictive Power Score (PPS) (based on the Python implementation by 8080Labs)}
 \description{
 The PPS is an asymmetric, data-type-agnostic score that can detect linear or non-linear relationships between two columns. The score ranges from 0 (no predictive power) to 1 (perfect predictive power). It can be used as an alternative to the correlation (matrix).  This package is a R port of the Python version developed by [8080Labs](https://github.com/8080labs/ppscore).

@@ -10,10 +10,12 @@
 #' * The Evaluation metric
 #' * The Baseline Score (Evaluate Metric vs. a Zero-R Classifer/Median)
 #' * The Model Score
+#' @importFrom purrr map2_dfr
 #' @keywords zuh
 #' @export
 #' @examples
-#' pps_matrix(titanic)
+#' data(titanic_example)
+#' pps_matrix(titanic_example)
 
 pps_matrix <- function(df){
   #Returns a Data Frame Containing all the combinations of PPS Scores for Variables

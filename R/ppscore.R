@@ -19,9 +19,13 @@
 #' * The Baseline Score (Evaluate Metric vs. a Zero-R Classifer/Median)
 #' * The Model Score
 #' @keywords zuh
+#' @importFrom rpart rpart
+#' @importFrom purrr map_dfr map2_dfr map_dbl
+#' @importFrom stats as.formula complete.cases predict quantile
 #' @export
 #' @examples
-#' ppscore(titanic, "Sex", "Survived")
+#' data(titanic_example)
+#' ppscore(titanic_example, "Sex", "Survived")
 
 
 
@@ -29,7 +33,7 @@ ppscore <- function(df, target, feature, task=NA, sample_val = 5000){
   #Calculate the Predictive Power Score (PPS) for "x predicts y"
   #Score ranges from 0 to 1 and is data-type agnostic
 
-  #A score of 0 means the column x cannot predict teh column y better than a naive baseline model
+  #A score of 0 means the column x cannot predict the column y better than a naive baseline model
   #A score of 1 means that the column x can perfectly predict the column y given the model
   #A score between 0 and 1 states the ratio of how much predictive power the model has compared to the baseline model
 

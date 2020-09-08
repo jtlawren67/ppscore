@@ -37,6 +37,7 @@ A score of 1 means that the column x can perfectly predict the column y given th
 A score between 0 and 1 states the ratio of how much potential predictive power the model achieved compared to the baseline model.
 }
 \examples{
-ppscore(titanic, "Sex", "Survived")
+data(titanic_example)
+ppscore(titanic_example, "Sex", "Survived")
 }
 \keyword{zuh}

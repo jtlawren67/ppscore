@@ -10,7 +10,7 @@ NUMERIC_AS_CATEGORIC_BREAKPOINT = 15
   df$fold <- sample(c(1:CV_ITERATIONS), nrow(df), replace = T)
 
   if(task_name == 'classification'){
-    df[, target] = as.factor(df[, target][[1]])
+    df[, target] = as.factor(df[, target])
   }
 
   ###Do Cross Validating
@@ -20,11 +20,11 @@ NUMERIC_AS_CATEGORIC_BREAKPOINT = 15
     # Predict
     if(task_name == 'classification'){
       pred = predict(rp, df[df$fold==i, ], type="class")
-      score = .f1(df[df$fold==i, target][[1]], pred)
+      score = .f1(df[df$fold==i, target], pred)
       return(score)
     }else{
       pred = predict(rp, df[df$fold==i, ])
-      score = .mae(df[df$fold==i, target][[1]], pred)
+      score = .mae(df[df$fold==i, target], pred)
       return(score)
     }
   }
@@ -81,13 +81,13 @@ NUMERIC_AS_CATEGORIC_BREAKPOINT = 15
     return("predict_itself")
   }
 
-  category_count = nrow(unique(df[, target]))
+  category_count = length(unique(df[, target]))
 
   if(category_count==1){
     return("predict_constant")
   }
 
-  if((nrow(unique(df[, feature])) > NUMERIC_AS_CATEGORIC_BREAKPOINT) & (
+  if((length(unique(df[, feature])) > NUMERIC_AS_CATEGORIC_BREAKPOINT) & (
     is.character(df[, feature][[1]]) | is.factor(df[, feature][[1]]))){
     return("too_many_feature_levels")
   }
@@ -122,8 +122,8 @@ NUMERIC_AS_CATEGORIC_BREAKPOINT = 15
 }
 
 .mae_normalizer <- function(df, target, model_score){
-  df$naive = quantile(df[, target][[1]], .5)
-  baseline_score = .mae(df[, target][[1]], df$naive)
+  df$naive = quantile(df[, target], .5)
+  baseline_score = .mae(df[, target], df$naive)
 
   ppscore = .normalized_mae_score(abs(model_score), baseline_score)
 
@@ -144,7 +144,7 @@ NUMERIC_AS_CATEGORIC_BREAKPOINT = 15
 
 .f1_normalizer <- function(df, target, model_score){
   df$naive = as.factor(names(sort(table(df[, target]), decreasing = T)[1]))
-  baseline_score = .f1(df[, target][[1]], df$naive)
+  baseline_score = .f1(df[, target], df$naive)
   ppscore = .normalized_f1_score(model_score, baseline_score)
 
   return(list(ppscore, baseline_score))

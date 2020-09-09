@@ -1,7 +1,8 @@
 #' @title Generate Predictive Power Score (PPS) for "feature predicts target"
 #'
 #' @description This function calculates the Predictive Power Score for "feature predicts target"
-#' The score always ranges from 0 to 1 and is data-type agnostic
+#' The score always ranges from 0 to 1 and is data-type agnostic:
+#'
 #' A score of 0 means that the column x cannot predict the column y better than a naive baseline model.
 #' A score of 1 means that the column x can perfectly predict the column y given the model.
 #' A score between 0 and 1 states the ratio of how much potential predictive power the model achieved compared to the baseline model.
@@ -9,7 +10,7 @@
 #' @param target The target of the relationship. What we want to explain. The dependent variable.
 #' @param feature The feature that explains the target.  The independent variable.
 #' @param task Name of the prediction task, e.g. classification or regression. If the task is not specified, it is infered based on the y column The task determines which model and evaluation score is used for the PPS
-#' @param sample_val Number of rows for sampling. The sampling decreases the calculation time of the PPS. If None there will be no sampling. Default is 5000.
+#' @param sample_val Number of rows for sampling. The sampling decreases the calculation time of the PPS. If NA there will be no sampling. Default is 5000.
 #' @return A data.frame containing:
 #' * The Target Variable
 #' * The Feature Variable
@@ -25,7 +26,7 @@
 #' @export
 #' @examples
 #' data(titanic_example)
-#' ppscore(titanic_example, "Sex", "Survived")
+#' ppscore(titanic_example, "Survived", "Sex")
 
 
 

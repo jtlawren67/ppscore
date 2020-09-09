@@ -10,10 +10,11 @@ Description: The PPS is an asymmetric, data-type-agnostic score that can detect 
 License: MIT + file LICENSE
 Imports:
   purrr,
-  rpart
+  rpart,
+  dplyr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5.0)

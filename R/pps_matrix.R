@@ -11,6 +11,7 @@
 #' * The Baseline Score (Evaluate Metric vs. a Zero-R Classifer/Median)
 #' * The Model Score
 #' @importFrom purrr map2_dfr
+#' @importFrom dplyr bind_rows
 #' @keywords zuh
 #' @export
 #' @examples
@@ -24,7 +25,9 @@ pps_matrix <- function(df){
   #Get All Comparisons
   name_combos <- expand.grid(
     target = names(df),
-    feature = names(df)
+    feature = names(df),
+    stringsAsFactors = FALSE,
+    KEEP.OUT.ATTRS = FALSE
   )
 
   results <- map2_dfr(name_combos$target, name_combos$feature, function(target, feature){
